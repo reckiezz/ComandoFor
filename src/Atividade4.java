@@ -2,28 +2,36 @@ import java.util.Scanner;
 public class Atividade4 {
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args){
+        
+        int n1 = leiaValores("1");
 
-        int fatorialN1 = 1, fatorialN2 = 1;
+        int n2 = leiaValores("2");
+            
+        int fatorialNum1 = calculaFatorial(n1);
+       
+        int fatorialNum2 = calculaFatorial(n2);  
 
-        System.out.print("\nDigite um número 1: ");
-        int n1 = Integer.parseInt(input.nextLine());
-
-        System.out.print("\nDigite um número 2: ");
-        int n2 = Integer.parseInt(input.nextLine());
+        apresentaFatorial(fatorialNum1, fatorialNum2);
 
         
-        for(int i = 1; i <= n1; i++){
-            fatorialN1 = fatorialN1 * i;
+    }
+
+    static int calculaFatorial(int n){
+        int fatorialN = 1;
+        for(int i = 1; i <= n; i++){
+            fatorialN = fatorialN * i;
 
         }
+        return fatorialN;
+    }
 
-        for(int i = 1; i <= n2; i++){
-            fatorialN2 = fatorialN2 * i;
-        }
+    static void apresentaFatorial(int fatorialNum1, int fatorialNum2){
+        System.out.print("\nO fatorial do número 1 é igual a: "+fatorialNum1+", e o fatorial do número 2 é: "+fatorialNum2+", e a soma deles é igual a: "+(fatorialNum1 + fatorialNum2)+"\n\n");
+    }
 
-        System.out.print("\nO fatorial do número 1 é igual a: "+fatorialN1+", e o fatorial do número 2 é: "+fatorialN2+", e a soma deles é igual a: "+(fatorialN1 + fatorialN2)+"\n\n");
-
-        
+    static int leiaValores(String texto){
+        System.out.print("\nDigite o número "+texto+": ");
+        return Integer.parseInt(input.nextLine());
     }
     
 }
